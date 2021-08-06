@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+/*
+ * @Author: GZH
+ * @Date: 2021-08-06 10:22:18
+ * @LastEditors: GZH
+ * @LastEditTime: 2021-08-06 10:45:44
+ * @FilePath: \cloud-music\src\App.js
+ * @Description:
+ */
+import React from 'react';
+import { IconStyle } from './assets/iconfont/iconfont';
+import { GlobalStyle } from './style';
+import { renderRoutes } from 'react-router-config'; //renderRoutes 读取路由配置转化为 Route 标签
+import routes from './routes/index.js';
+import { HashRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <GlobalStyle></GlobalStyle>
+      <IconStyle></IconStyle>
+      {renderRoutes(routes)}
+    </HashRouter>
   );
 }
 
