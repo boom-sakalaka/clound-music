@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-08-06 13:55:46
  * @LastEditors: GZH
- * @LastEditTime: 2021-08-06 14:00:09
+ * @LastEditTime: 2021-08-06 15:12:34
  * @FilePath: \cloud-music\src\components\slider\style.js
  * @Description:
  */
@@ -18,8 +18,8 @@ export const SliderContainer = styled.div`
   background: white;
   .before {
     position: absolute;
-    top: 0;
-    height: 60%;
+    top: -300px;
+    height: 400px;
     width: 100%;
     background: ${style['theme-color']};
   }

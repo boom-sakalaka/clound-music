@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-08-06 13:51:10
  * @LastEditors: GZH
- * @LastEditTime: 2021-08-06 14:29:29
+ * @LastEditTime: 2021-08-06 14:51:31
  * @FilePath: \cloud-music\src\components\slider\index.js
  * @Description:  https://swiperjs.com/get-started  swiperjs的使用
  */
@@ -10,9 +10,9 @@ import React, { useEffect, useState } from 'react';
 
 import { SliderContainer } from './style';
 import 'swiper/swiper-bundle.min.css';
-import SwiperCore, { Pagination } from 'swiper/core';
+import SwiperCore, { Pagination, Autoplay } from 'swiper/core';
 import Swiper from 'swiper';
-SwiperCore.use([Pagination]);
+SwiperCore.use([Pagination, Autoplay]);
 
 function Slider(props) {
   const [sliderSwiper, setSliderSwiper] = useState(null);
@@ -30,7 +30,7 @@ function Slider(props) {
 
       setSliderSwiper(newSliderSwiper);
     }
-  }, [bannerList.length, sliderSwiper]);
+  }, [bannerList, sliderSwiper]);
   return (
     <SliderContainer>
       <div className='before'></div>
