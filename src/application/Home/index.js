@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-08-06 10:46:15
  * @LastEditors: GZH
- * @LastEditTime: 2021-08-06 11:39:55
+ * @LastEditTime: 2021-08-06 11:44:34
  * @FilePath: \cloud-music\src\application\Home\index.js
  * @Description:
  */
@@ -23,7 +23,7 @@ function Home(props) {
       <Tab>
         <NavLink to='/recommend' activeClassName='selected'>
           <TabItem>
-            <span> 推荐 </span>
+            <span> 推荐</span>
           </TabItem>
         </NavLink>
         <NavLink to='/singers' activeClassName='selected'>
