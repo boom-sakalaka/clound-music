@@ -2,9 +2,9 @@
  * @Author: GZH
  * @Date: 2021-08-06 10:22:18
  * @LastEditors: GZH
- * @LastEditTime: 2021-08-06 10:26:14
+ * @LastEditTime: 2021-08-06 10:59:04
  * @FilePath: \cloud-music\src\index.js
- * @Description:
+ * @Description: https://juejin.cn/book/6844733816460804104
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
