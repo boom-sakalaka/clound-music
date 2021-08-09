@@ -2,11 +2,11 @@
  * @Author: GZH
  * @Date: 2021-08-06 10:46:15
  * @LastEditors: GZH
- * @LastEditTime: 2021-08-09 11:42:15
+ * @LastEditTime: 2021-08-09 14:00:44
  * @FilePath: \clound-music\src\application\Singers\index.js
  * @Description:
  */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Horizen from "../../baseUI/horizen-item";
 import { categoryTypes, alphaTypes } from "../../api/config";
 import { NavContainer, List, ListItem, ListContainer } from "./style";
@@ -24,11 +24,11 @@ import Scroll from "./../../baseUI/scroll/index";
 import LazyLoad, { forceCheck } from "react-lazyload";
 import { connect } from "react-redux";
 import Loading from "../../baseUI/loading";
+import { CategoryDataContext, CHANGE_ALPHA, CHANGE_CATEGORY } from "./data";
 
 function Singers(props) {
-  let [category, setCategory] = useState("");
-  let [alpha, setAlpha] = useState("");
-
+  const { data, dispatch } = useContext(CategoryDataContext);
+  const { category, alpha } = data.toJS();
   const {
     singerList,
     enterLoading,
@@ -49,13 +49,14 @@ function Singers(props) {
     // eslint-disable-next-line
   }, []);
 
+  //CHANGE_ALPHA 和 CHANGE_CATEGORY 变量需要从 data.js 中引入
   let handleUpdateAlpha = (val) => {
-    setAlpha(val);
-    updateDispatch(val, alpha);
+    dispatch({ type: CHANGE_ALPHA, data: val });
+    updateDispatch(category, val);
   };
 
   let handleUpdateCatetory = (val) => {
-    setCategory(val);
+    dispatch({ type: CHANGE_CATEGORY, data: val });
     updateDispatch(val, alpha);
   };
 

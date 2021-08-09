@@ -2,11 +2,11 @@
  * @Author: GZH
  * @Date: 2021-08-06 14:34:45
  * @LastEditors: GZH
- * @LastEditTime: 2021-08-09 11:24:26
+ * @LastEditTime: 2021-08-09 14:56:38
  * @FilePath: \clound-music\src\api\utils.js
  * @Description:
  */
-
+import { RankTypes } from "./config";
 export const getCount = (count) => {
   if (count < 0) return;
   if (count < 10000) {
@@ -29,4 +29,20 @@ export const debounce = (func, delay) => {
       clearTimeout(timer);
     }, delay);
   };
+};
+
+// 处理数据，找出第一个没有歌名的排行榜的索引
+export const filterIndex = (rankList) => {
+  for (let i = 0; i < rankList.length - 1; i++) {
+    if (rankList[i].tracks.length && !rankList[i + 1].tracks.length) {
+      return i + 1;
+    }
+  }
+};
+//找出排行榜的编号
+export const filterIdx = (name) => {
+  for (var key in RankTypes) {
+    if (RankTypes[key] === name) return key;
+  }
+  return null;
 };
