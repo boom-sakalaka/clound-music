@@ -2,15 +2,15 @@
  * @Author: GZH
  * @Date: 2021-08-06 16:57:17
  * @LastEditors: GZH
- * @LastEditTime: 2021-08-06 17:05:15
- * @FilePath: \cloud-music\src\baseUI\horizen-item\index.js
+ * @LastEditTime: 2021-08-09 10:44:56
+ * @FilePath: \clound-music\src\baseUI\horizen-item\index.js
  * @Description:
  */
-import React, { useState, useRef, useEffect, memo } from 'react';
-import styled from 'styled-components';
-import Scroll from '../scroll/index';
-import { PropTypes } from 'prop-types';
-import style from '../../assets/global-style';
+import React, { useRef, useEffect, memo } from "react";
+import styled from "styled-components";
+import Scroll from "../scroll/index";
+import { PropTypes } from "prop-types";
+import style from "../../assets/global-style";
 
 function Horizen(props) {
   const { list, oldVal, title } = props;
@@ -19,24 +19,24 @@ function Horizen(props) {
   // 加入初始化内容宽度的逻辑
   useEffect(() => {
     let categoryDOM = Category.current;
-    let tagElems = categoryDOM.querySelectorAll('span');
+    let tagElems = categoryDOM.querySelectorAll("span");
     let totalWidth = 0;
-    Array.from(tagElems).forEach(ele => {
+    Array.from(tagElems).forEach((ele) => {
       totalWidth += ele.offsetWidth;
     });
     categoryDOM.style.width = `${totalWidth}px`;
   }, []);
 
   return (
-    <Scroll direction={'horizental'}>
+    <Scroll direction={"horizental"}>
       <div ref={Category}>
         <List>
           <span>{title}</span>
-          {list.map(item => {
+          {list.map((item) => {
             return (
               <ListItem
                 key={item.key}
-                className={`${oldVal === item.key ? 'selected' : ''}`}
+                className={`${oldVal === item.key ? "selected" : ""}`}
                 onClick={() => handleClick(item.key)}
               >
                 {item.name}
@@ -61,18 +61,18 @@ const List = styled.div`
     padding: 5px 0;
     margin-right: 5px;
     color: grey;
-    font-size: ${style['font-size-m']};
+    font-size: ${style["font-size-m"]};
     vertical-align: middle;
   }
 `;
 const ListItem = styled.span`
   flex: 0 0 auto;
-  font-size: ${style['font-size-m']};
+  font-size: ${style["font-size-m"]};
   padding: 5px 8px;
   border-radius: 10px;
   &.selected {
-    color: ${style['theme-color']};
-    border: 1px solid ${style['theme-color']};
+    color: ${style["theme-color"]};
+    border: 1px solid ${style["theme-color"]};
     opacity: 0.8;
   }
 `;
@@ -83,8 +83,8 @@ const ListItem = styled.span`
 //handleClick 为点击不同的 item 执行的方法
 Horizen.defaultProps = {
   list: [],
-  oldVal: '',
-  title: '',
+  oldVal: "",
+  title: "",
   handleClick: null,
 };
 
