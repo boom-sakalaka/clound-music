@@ -2,7 +2,7 @@
  * @Author: GZH
  * @Date: 2021-08-06 10:46:38
  * @LastEditors: GZH
- * @LastEditTime: 2021-08-09 09:32:38
+ * @LastEditTime: 2021-08-09 15:57:08
  * @FilePath: \clound-music\src\application\Recommend\index.js
  * @Description:
  */
@@ -16,6 +16,7 @@ import { Content } from "./style";
 // 引入 forceCheck 方法
 import { forceCheck } from "react-lazyload";
 import Loading from "../../baseUI/loading/index";
+import { renderRoutes } from "react-router-config";
 
 function Recommend(props) {
   const { bannerList, recommendList, enterLoading } = props;
@@ -50,6 +51,7 @@ function Recommend(props) {
         </div>
       </Scroll>
       {enterLoading ? <Loading></Loading> : null}
+      {renderRoutes(props.route.routes)}
     </Content>
   );
 }
